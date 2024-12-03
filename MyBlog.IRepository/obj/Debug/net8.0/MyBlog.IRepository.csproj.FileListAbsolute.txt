@@ -1,0 +1,15 @@
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\bin\Debug\net8.0\MyBlog.IRepository.deps.json
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\bin\Debug\net8.0\MyBlog.IRepository.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\bin\Debug\net8.0\MyBlog.IRepository.pdb
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\bin\Debug\net8.0\MyBlog.Model.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\bin\Debug\net8.0\MyBlog.Model.pdb
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\obj\Debug\net8.0\MyBlog.IRepository.csproj.AssemblyReference.cache
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\obj\Debug\net8.0\MyBlog.IRepository.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\obj\Debug\net8.0\MyBlog.IRepository.AssemblyInfoInputs.cache
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\obj\Debug\net8.0\MyBlog.IRepository.AssemblyInfo.cs
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\obj\Debug\net8.0\MyBlog.IRepository.csproj.CoreCompileInputs.cache
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\obj\Debug\net8.0\MyBlog.I.F0417220.Up2Date
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\obj\Debug\net8.0\MyBlog.IRepository.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\obj\Debug\net8.0\refint\MyBlog.IRepository.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\obj\Debug\net8.0\MyBlog.IRepository.pdb
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\obj\Debug\net8.0\ref\MyBlog.IRepository.dll

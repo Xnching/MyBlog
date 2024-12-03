@@ -1,0 +1,17 @@
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\bin\Debug\net8.0\MyBlog.Repository.deps.json
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\bin\Debug\net8.0\MyBlog.Repository.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\bin\Debug\net8.0\MyBlog.Repository.pdb
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\bin\Debug\net8.0\MyBlog.IRepository.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\bin\Debug\net8.0\MyBlog.Model.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\bin\Debug\net8.0\MyBlog.IRepository.pdb
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\bin\Debug\net8.0\MyBlog.Model.pdb
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\obj\Debug\net8.0\MyBlog.Repository.csproj.AssemblyReference.cache
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\obj\Debug\net8.0\MyBlog.Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\obj\Debug\net8.0\MyBlog.Repository.AssemblyInfoInputs.cache
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\obj\Debug\net8.0\MyBlog.Repository.AssemblyInfo.cs
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\obj\Debug\net8.0\MyBlog.Repository.csproj.CoreCompileInputs.cache
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\obj\Debug\net8.0\MyBlog.R.5AFB3018.Up2Date
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\obj\Debug\net8.0\MyBlog.Repository.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\obj\Debug\net8.0\refint\MyBlog.Repository.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\obj\Debug\net8.0\MyBlog.Repository.pdb
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.Repository\obj\Debug\net8.0\ref\MyBlog.Repository.dll

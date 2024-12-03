@@ -1,0 +1,17 @@
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\bin\Debug\net8.0\MyBlog.IService.deps.json
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\bin\Debug\net8.0\MyBlog.IService.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\bin\Debug\net8.0\MyBlog.IService.pdb
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\bin\Debug\net8.0\MyBlog.IRepository.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\bin\Debug\net8.0\MyBlog.Model.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\bin\Debug\net8.0\MyBlog.IRepository.pdb
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\bin\Debug\net8.0\MyBlog.Model.pdb
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\obj\Debug\net8.0\MyBlog.IService.csproj.AssemblyReference.cache
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\obj\Debug\net8.0\MyBlog.IService.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\obj\Debug\net8.0\MyBlog.IService.AssemblyInfoInputs.cache
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\obj\Debug\net8.0\MyBlog.IService.AssemblyInfo.cs
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\obj\Debug\net8.0\MyBlog.IService.csproj.CoreCompileInputs.cache
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\obj\Debug\net8.0\MyBlog.I.FE7A20DD.Up2Date
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\obj\Debug\net8.0\MyBlog.IService.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\obj\Debug\net8.0\refint\MyBlog.IService.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\obj\Debug\net8.0\MyBlog.IService.pdb
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\obj\Debug\net8.0\ref\MyBlog.IService.dll
