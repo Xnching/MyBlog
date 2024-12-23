@@ -24,7 +24,11 @@ namespace MyBlog.WebApi.Controllers
         public async Task<Result> getTypes()
         {
             var types = await typeInfoService.ListAll();
-            if (types == null || types.Count == 0) return ResultHelper.Error("没有类型了！");
+            types.Insert(0, new TypeInfo
+            {
+                Id = 0,
+                Name = "全部",
+            });
             return ResultHelper.Success(types);
         }
 

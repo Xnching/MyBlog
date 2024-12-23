@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using MyBlog.IService;
 using MyBlog.Model;
+using MyBlog.Model.DTO;
 using MyBlog.WebApi.Common;
 using MyBlog.WebApi.Utils;
 using Newtonsoft.Json.Linq;
@@ -46,7 +47,21 @@ namespace MyBlog.JWT.Controllers
                 );
 
                 var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
-                return ResultHelper.Success(jwtToken);
+                Console.WriteLine(jwtToken);
+                
+                WriterDTO writerDTO = new WriterDTO
+                {
+                    Id = writer.Id,
+                    UserName = username,
+                    Name = writer.Name,
+
+                };
+                LoginDTO loginDTO = new LoginDTO
+                {
+                    Jwt = jwtToken,
+                    UserInfo = writerDTO
+                };
+                return ResultHelper.Success(loginDTO);
             }
             else
             {
