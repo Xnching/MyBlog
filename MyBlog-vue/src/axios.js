@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 
 
-axios.defaults.baseURL = "http://localhost:8081"
+axios.defaults.baseURL = "http://localhost:8081/api"
 
 // 前置拦截器：在发送请求前添加 JWT 令牌到请求头
 axios.interceptors.request.use(config => {

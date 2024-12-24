@@ -4,6 +4,7 @@
   </div>
 </template>
 
+
 <style>
   #app {
     max-width: 960px;

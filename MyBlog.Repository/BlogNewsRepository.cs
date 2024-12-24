@@ -13,6 +13,16 @@ namespace MyBlog.Repository
 {
     public class BlogNewsRepository:BaseRepository<BlogNews>,IBlogNewsRepository
     {
+        public async override Task<BlogNews> GetById(int id)
+        {
+            var result = await base.Context.Queryable<BlogNews>()
+                .Where(c => c.Id == id)
+                .Mapper(c => c.TypeInfo, c => c.TypeId, c => c.TypeInfo.Id)
+                .Mapper(c => c.WriterInfo, c => c.WriterId, c => c.WriterInfo.Id)
+                .ToListAsync();
+
+            return result.FirstOrDefault();
+        }
         public async override Task<List<BlogNews>> ListAll()
         {
             return await base.Context.Queryable<BlogNews>()

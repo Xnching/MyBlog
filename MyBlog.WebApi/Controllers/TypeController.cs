@@ -9,7 +9,6 @@ namespace MyBlog.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class TypeController : ControllerBase
     {
         private readonly ITypeInfoService typeInfoService;
@@ -57,7 +56,7 @@ namespace MyBlog.WebApi.Controllers
             return ResultHelper.Return(b, "修改成功", "修改失败");
         }
 
-        [HttpDelete("Delete")]
+        [HttpDelete("Delete/{id}")]
         [ServiceFilter(typeof(DeleteFilter))]
         public async Task<Result> deleteType(int id)
         {

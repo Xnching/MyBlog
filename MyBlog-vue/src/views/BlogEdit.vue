@@ -10,7 +10,7 @@
         </el-form-item>
 
         <el-form-item label="内容" prop="content">
-          <mavon-editor v-model="ruleForm.Content"></mavon-editor>
+          <wang-editor ref="myEditor" v-model="ruleForm.Content"></wang-editor>
         </el-form-item>
 
         <el-form-item>
@@ -26,15 +26,16 @@
 
 <script>
   import Header from "../components/Header";
+  import WangEditor from "../components/wangEditor.vue";
   export default {
     name: "BlogEdit.vue",
-    components: {Header},
+    components: {Header,WangEditor},
     data() {
       return {
         ruleForm: {
           Id: '',
           Title: '',
-          Content: ''
+          Content: '',
         },
         rules: {
           Title: [
@@ -42,7 +43,7 @@
             { min: 3, max: 25, message: '长度在 3 到 25 个字符', trigger: 'blur' }
           ],
           Content: [
-            { trequired: true, message: '请输入内容', trigger: 'blur' }
+            { required: true, message: '请输入内容', trigger: 'blur' }
           ]
         }
       };
@@ -51,11 +52,12 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-
             const _this = this
-            this.$axios.post('/blog/edit', this.ruleForm, {
+            let htmlContent = this.$refs.myEditor.valueHtml;
+            _this.ruleForm.Content = htmlContent;
+            this.$axios.put('/BlogNews/edit', this.ruleForm, {
               headers: {
-                "Authorization": localStorage.getItem("token")
+                "Authorization": 'Bearer '+localStorage.getItem("token")
               }
             }).then(res => {
               console.log(res)
@@ -82,12 +84,17 @@
       const blogId = this.$route.params.blogId
       console.log(blogId)
       const _this = this
+      
       if(blogId) {
-        this.$axios.get('/blog/' + blogId).then(res => {
-          const blog = res.Data
-          _this.ruleForm.Id = blog.Id
-          _this.ruleForm.Title = blog.Title
-          _this.ruleForm.Content = blog.Content
+        this.$axios.get('/BlogNews/blog/' + blogId, {
+              headers: {
+                "Authorization": 'Bearer '+localStorage.getItem("token")
+              }
+            }).then(res => {
+          const blog = res.data.data
+          _this.ruleForm.Id = blog.id
+          _this.ruleForm.Title = blog.title
+          _this.ruleForm.Content = blog.content
         })
       }
 

@@ -12,10 +12,12 @@ export default new Vuex.Store({
     // set
     SET_TOKEN: (state, token) => {
       state.token = token
+      console.log("Token updated:", state.token);
       localStorage.setItem("token", token)
     },
     SET_USERINFO: (state, userInfo) => {
       state.userInfo = userInfo
+      console.log("UserInfo updated:", state.userInfo);
       sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
     },
     REMOVE_INFO: (state) => {

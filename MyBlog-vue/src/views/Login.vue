@@ -16,7 +16,9 @@
 
           <el-form-item>
             <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+            <el-button type="primary" @click="mangerSubmitForm('ruleForm')">管理员登录</el-button>
             <el-button @click="resetForm('ruleForm')">重置</el-button>
+            <el-button @click="gotoReg">注册</el-button>
           </el-form-item>
         </el-form>
 
@@ -51,16 +53,22 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             const _this = this
-            this.$axios.post('/login', this.ruleForm).then(res => {
+            this.$axios.post('/Authoize/login', this.ruleForm).then(res => {
 
-              console.log(res.Data)
-              const jwt = res.Data.Jwt
-              const userInfo = res.Data.UserInfo
+              console.log(res.data)
+              const jwt = res.data.data.jwt
+              const userInfo = res.data.data.userInfo
 
+              console.log("jwt");
+              console.log(jwt);
+              
+              
               // 把数据共享出去
               _this.$store.commit("SET_TOKEN", jwt)
               _this.$store.commit("SET_USERINFO", userInfo)
 
+              console.log("存储成功了没");
+              
               // 获取
               console.log(_this.$store.getters.getUser)
 
@@ -73,8 +81,43 @@
           }
         });
       },
+      gotoReg(){
+        this.$router.replace("/register")
+      },
       resetForm(formName) {
         this.$refs[formName].resetFields();
+      },
+      mangerSubmitForm(formName){
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            const _this = this
+            this.$axios.post('/Authoize/login', this.ruleForm).then(res => {
+
+              console.log(res.data)
+              const jwt = res.data.data.jwt
+              const userInfo = res.data.data.userInfo
+
+              console.log("jwt");
+              console.log(jwt);
+              
+              
+              // 把数据共享出去
+              _this.$store.commit("SET_TOKEN", jwt)
+              _this.$store.commit("SET_USERINFO", userInfo)
+
+              console.log("存储成功了没");
+              
+              // 获取
+              console.log(_this.$store.getters.getUser)
+
+              _this.$router.push("/manger")
+            })
+
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
       }
     }
   }

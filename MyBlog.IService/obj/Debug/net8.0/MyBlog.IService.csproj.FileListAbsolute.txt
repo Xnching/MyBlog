@@ -15,3 +15,4 @@ D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\obj\Debug\net8.0
 D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\obj\Debug\net8.0\refint\MyBlog.IService.dll
 D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\obj\Debug\net8.0\MyBlog.IService.pdb
 D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\obj\Debug\net8.0\ref\MyBlog.IService.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IService\obj\Debug\net8.0\MyBlog.IService.sourcelink.json

@@ -74,14 +74,14 @@ namespace MyBlog.WebApi.Controllers
         }
 
         [HttpPost("add")]
-        public async Task<ActionResult<Result>> addBlogNews(string title,string content,int typeid)
+        public async Task<ActionResult<Result>> addBlogNews(AddDTO add)
         {
             BlogNews blogNews = new BlogNews
             {
                 BrowseCount = 0,
-                Title = title,
-                Content = content,
-                TypeId = typeid,
+                Title = add.title,
+                Content = add.content,
+                TypeId = add.typeid,
                 time = DateTime.Now,
                 LikeCount = 0,
                 WriterId = Convert.ToInt32(this.User.FindFirst("Id").Value),
@@ -91,7 +91,7 @@ namespace MyBlog.WebApi.Controllers
             return ResultHelper.Success();
         }
 
-        [HttpDelete("Delete")]
+        [HttpDelete("Delete/{id}")]
         public async Task<ActionResult<Result>> deleteBlogNews(int id)
         {
             bool b = await blogNewsService.DeleteById(id);
@@ -100,13 +100,13 @@ namespace MyBlog.WebApi.Controllers
         }
 
         [Authorize]
-        [HttpPut("Edit")]
-        public async Task<ActionResult<Result>> editBlogNews(BlogNews blog)
+        [HttpPut("edit")]
+        public async Task<ActionResult<Result>> editBlogNews(EditDTO edit)
         {
-            var blogNews = await blogNewsService.GetById(blog.Id);
+            var blogNews = await blogNewsService.GetById(edit.Id);
             if (blogNews == null) return ResultHelper.Error("未找到文章来进行修改！");
-            blogNews.Title = blog.Title;
-            blogNews.Content = blog.Content;
+            blogNews.Title = edit.Title;
+            blogNews.Content = edit.Content;
             bool b = await blogNewsService.Update(blogNews);
             if (!b) return ResultHelper.Error("修改失败！");
             return ResultHelper.Success();
@@ -116,7 +116,7 @@ namespace MyBlog.WebApi.Controllers
         public async Task<Result> findPages([FromServices] IMapper iMapper, int pageNum,int typeId)
         {
             
-            int pageSize = 10;
+            int pageSize = 5;
             RefAsync<int> total = 0;
             List<BlogNews> blogNews;
             if (typeId == 0)

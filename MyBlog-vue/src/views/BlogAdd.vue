@@ -6,21 +6,22 @@
 
       <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
 
-        <el-select v-model="ruleForm.TypeId" filterable placeholder="博客文章类型" @change="page(1)" style="width: 150px;margin-right: 220px;">
+        选择博客文章类型：
+        <el-select v-model="ruleForm.typeid" filterable placeholder="博客文章类型" style="width: 150px;margin-right: 470px;margin-bottom: 30px;">
           <el-option
               v-for="item in types"
-              :key="item.Id"
-              :label="item.Name"
-              :value="item.Id">
+              :key="item.id"
+              :label="item.name"
+              :value="item.id">
           </el-option>
         </el-select>
 
         <el-form-item label="标题" prop="title">
-          <el-input v-model="ruleForm.Title"></el-input>
+          <el-input v-model="ruleForm.title"></el-input>
         </el-form-item>
 
         <el-form-item label="内容" prop="content">
-          <mavon-editor v-model="ruleForm.Content"></mavon-editor>
+          <wang-editor ref="myEditor" v-model="ruleForm.createdontent"></wang-editor>
         </el-form-item>
 
         <el-form-item>
@@ -36,26 +37,28 @@
 
 <script>
   import Header from "../components/Header";
+  import WangEditor from "../components/wangEditor.vue";
   export default {
-    name: "BlogEdit.vue",
-    components: {Header},
+    name: "BlogAdd.vue",
+    components: {Header,WangEditor},
     data() {
       return {
+        types:[],
         ruleForm: {
-          Id: '',
-          Title: '',
-          Content: '',
-          TypeId:'',
+          title: '',
+          content: '',
+          typeid:'1',
+
         },
         rules: {
-          Title: [
+          title: [
             { required: true, message: '请输入标题', trigger: 'blur' },
             { min: 3, max: 25, message: '长度在 3 到 25 个字符', trigger: 'blur' }
           ],
-          Content: [
+          content: [
             { trequired: true, message: '请输入内容', trigger: 'blur' }
           ],
-          TypeId: [
+          typeid: [
             { required: true, message: '请选择博客文章类型', trigger: 'change' },
             { validator: (rule, value, callback) => {
                 if (value === '0') {
@@ -74,9 +77,11 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             const _this = this
-            this.$axios.post('/blog/add', this.ruleForm, {
+            let htmlContent = this.$refs.myEditor.valueHtml;
+            _this.ruleForm.content = htmlContent;
+            this.$axios.post('/BlogNews/add', this.ruleForm, {
               headers: {
-                "Authorization": localStorage.getItem("token")
+                "Authorization": "Bearer "+localStorage.getItem("token")
               }
             }).then(res => {
               console.log(res)
@@ -97,8 +102,17 @@
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
-      }
+      },
+      getTypes(){
+        const _this = this
+        _this.$axios.get("/Type/types").then(res => {
+          _this.types = res.data.data
+        })
+      },
     },
+    created(){
+      this.getTypes();
+    }
   }
 </script>
 

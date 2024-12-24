@@ -10,5 +10,6 @@ namespace MyBlog.Model.DTO
     {
         public string Jwt { get; set; }
         public WriterDTO UserInfo { get; set; }
+
     }
 }

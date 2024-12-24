@@ -13,3 +13,4 @@ D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\obj\Debug\net
 D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\obj\Debug\net8.0\refint\MyBlog.IRepository.dll
 D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\obj\Debug\net8.0\MyBlog.IRepository.pdb
 D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\obj\Debug\net8.0\ref\MyBlog.IRepository.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.IRepository\obj\Debug\net8.0\MyBlog.IRepository.sourcelink.json

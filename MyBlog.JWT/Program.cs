@@ -88,6 +88,17 @@ builder.Services.AddAuthorization(options =>
         policy.RequireAuthenticatedUser());
 });
 
+
+builder.Services.AddSwaggerGen();
+
+//配置前端网址，可以写在配置文件中实现灵活配置
+string[] urls = new[] { "http://localhost:8080" };
+
+//注册跨域服务到容器中
+builder.Services.AddCors(options =>
+    options.AddDefaultPolicy(builder => builder.WithOrigins(urls)
+    .AllowAnyMethod().AllowAnyHeader().AllowCredentials()));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -99,6 +110,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseCors();
 
 app.MapControllers();
 

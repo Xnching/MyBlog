@@ -5,15 +5,17 @@ using Microsoft.AspNetCore.Mvc;
 using MyBlog.IService;
 using MyBlog.Model;
 using MyBlog.Model.DTO;
+using MyBlog.Service;
 using MyBlog.WebApi.Common;
 using MyBlog.WebApi.Filter;
 using MyBlog.WebApi.Utils;
+using SqlSugar;
 
 namespace MyBlog.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    
     public class WriterInfoController : ControllerBase
     {
         private readonly IWriterInfoService writerInfoService;
@@ -23,21 +25,22 @@ namespace MyBlog.WebApi.Controllers
         }
 
         [HttpPost("add")]
-        public async Task<Result> addWriter(string name,string username,string userpwd)
+        public async Task<Result> addWriter(RegisterDTO register)
         {
-            var oldWriter = await writerInfoService.QueryOne(c => c.Name == username);
+            var oldWriter = await writerInfoService.QueryOne(c => c.UserName == register.username);
             if (oldWriter != null) return ResultHelper.Error("账号已存在！");
             WriterInfo writerInfo = new WriterInfo
             {
-                Name = name,
-                UserName = username,
-                password = MD5Util.MD5Encrypt32(userpwd)
+                Name = register.name,
+                UserName = register.username,
+                password = MD5Util.MD5Encrypt32(register.userpwd)
             };
 
             bool b = await writerInfoService.Insert(writerInfo);
             return ResultHelper.Return(b, "添加成功", "添加失败");
         }
 
+        [Authorize]
         [HttpPut("edit")]
         [ServiceFilter(typeof(DeleteFilter))]
         public async Task<Result> editName(string name)
@@ -57,6 +60,37 @@ namespace MyBlog.WebApi.Controllers
             var writer = await writerInfoService.GetById(id);
             var writerDTO = iMapper.Map<WriterDTO>(writer);
             return ResultHelper.Success(writerDTO);
+        }
+
+        [Authorize]
+        [HttpGet("page")]
+        public async Task<Result> findPages([FromServices] IMapper iMapper, int pageNum)
+        {
+            int pageSize = 5;
+            RefAsync<int> total = 0;
+            List<WriterInfo> infos;
+            
+            infos = await writerInfoService.Page(pageNum, pageSize, total);
+            
+            try
+            {
+                //使用映射的，如此只得到名称，映射方法在自定义映射类中
+                var blogNewsDTO = iMapper.Map<List<WriterDTO>>(infos);
+                return ResultHelper.Success(blogNewsDTO, total);
+            }
+            catch (Exception ex)
+            {
+                return ResultHelper.Error(ex.Message);
+            }
+        }
+
+        [Authorize]
+        [HttpDelete("Delete/{id}")]
+        public async Task<ActionResult<Result>> deleteWriterInfo(int id)
+        {
+            bool b = await writerInfoService.DeleteById(id);
+            if (!b) return ResultHelper.Error("删除失败！");
+            return ResultHelper.Success();
         }
     }
 }

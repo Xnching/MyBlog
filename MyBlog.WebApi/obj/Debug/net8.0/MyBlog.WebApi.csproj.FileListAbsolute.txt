@@ -132,3 +132,4 @@ D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.WebApi\obj\Debug\net8.0\M
 D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.WebApi\obj\Debug\net8.0\ref\MyBlog.WebApi.dll
 D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.WebApi\bin\Debug\net8.0\AutoMapper.dll
+D:\Programming\Visual Studio\projects\newMyBlog\MyBlog.WebApi\obj\Debug\net8.0\MyBlog.WebApi.sourcelink.json

@@ -22,8 +22,10 @@ namespace MyBlog.JWT.Controllers
             this.writerInfoService = writerInfoService;
         }
         [HttpPost("login")]
-        public async Task<Result> login(string username, string password)
+        public async Task<Result> login(AuthoizeDTO authoizeDTO)
         {
+            string username = authoizeDTO.username; 
+            string password = authoizeDTO.password;
             string pwd = MD5Util.MD5Encrypt32(password);
             var writer = await writerInfoService.QueryOne(c => (c.UserName == username) && (c.password == pwd));
             if (writer != null)

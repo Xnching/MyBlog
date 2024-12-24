@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using SqlSugar;
 
@@ -23,8 +24,10 @@ namespace MyBlog.Model
         /// 附带的、对应映射的表里不存在的属性
         /// </summary>
         [SugarColumn(IsIgnore = true)]
+        [JsonIgnore]
         public TypeInfo TypeInfo { get; set; }
         [SugarColumn(IsIgnore = true)]
+        [JsonIgnore]
         public WriterInfo WriterInfo { get; set; }
     }
 }
