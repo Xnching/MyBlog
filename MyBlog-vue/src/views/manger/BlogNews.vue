@@ -12,8 +12,6 @@
 	    <el-header style="text-align: right; font-size: 12px; border-bottom: 1px solid red; line-height:60px">
         <MangerHeader name="王小虎测试"/>
       </el-header>
-
-
       <!-- 此处为主体部分 -->
 	    <el-main>
         <keep-alive>

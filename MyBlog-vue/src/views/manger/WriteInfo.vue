@@ -43,8 +43,14 @@
                 label="用户名"
                 width="190">
               </el-table-column>
+              <el-table-column
+                prop="role"
+                label="是否为管理员"
+                width="120">
+              </el-table-column>
               <el-table-column fixed="right" label="操作">                         
                 <template slot-scope="scope">
+                    <el-button type="primary" size="small"  icon="el-icon-plus" @click="handleSet(scope.row)">添加为管理员</el-button>
                     <el-button type="danger" size="small"  icon="el-icon-delete" @click="handleDelete(scope.row)">删除</el-button>
                 </template>
               </el-table-column> 
@@ -76,7 +82,6 @@
 import Aside from '@/components/Aside.vue'
 import MangerHeader from '../../components/MangerHeader.vue';
 
-
 export default {
   name: "WriteInfo",
   //此处添加组件
@@ -102,9 +107,16 @@ export default {
             }
           }).then(res => {
         //console.log(res)
-        _this.tableData = res.data.data
-        _this.currentPage=newPage;
-        _this.total = res.data.total
+
+        if (res.data && res.data.data) {
+          _this.tableData = res.data.data.map(item => ({
+            ...item,
+            role: item.role === 1 ? '是' : item.role === 0 ? '不是' : item.role
+          }));
+          _this.currentPage = newPage;
+          _this.total = res.data.total;
+        }
+
       })
     },
     handleDelete(row){
@@ -129,10 +141,36 @@ export default {
       }).catch(() => {
         this.$message({
           type: 'info',
-          message: '已取消删除'
-        });          
+          message: '已取消设置'
+        });
       });
     },
+    handleSet(row){
+      this.$confirm('确认设置该记录吗?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        // 调用后端删除接口
+        this.$axios.delete(`/WriterInfo/role/${row.id}`, {
+              headers: {
+                "Authorization": 'Bearer '+localStorage.getItem("token")
+              }
+            }).then(res => {
+          if(res.data.code == 200){
+            this.$message.success('设置用户数据成功！');
+            this.page(1);
+          }else{
+            this.$message.error('设置用户数据失败，原因：'+res.data.msg);
+          }
+        });
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消设置'
+        });          
+      });
+    }
   },
   created(){
     this.page(1);

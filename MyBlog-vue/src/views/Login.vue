@@ -91,7 +91,7 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             const _this = this
-            this.$axios.post('/Authoize/login', this.ruleForm).then(res => {
+            this.$axios.post('/Authoize/login2', this.ruleForm).then(res => {
 
               console.log(res.data)
               const jwt = res.data.data.jwt

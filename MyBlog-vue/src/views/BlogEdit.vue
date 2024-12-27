@@ -83,18 +83,19 @@
     created() {
       const blogId = this.$route.params.blogId
       console.log(blogId)
-      const _this = this
       
       if(blogId) {
+        
         this.$axios.get('/BlogNews/blog/' + blogId, {
               headers: {
                 "Authorization": 'Bearer '+localStorage.getItem("token")
               }
             }).then(res => {
           const blog = res.data.data
-          _this.ruleForm.Id = blog.id
-          _this.ruleForm.Title = blog.title
-          _this.ruleForm.Content = blog.content
+          this.ruleForm.Id = blog.id
+          this.ruleForm.Title = blog.title
+          this.ruleForm.Content = blog.content
+          this.$refs.myEditor.valueHtml = this.ruleForm.Content;
         })
       }
 

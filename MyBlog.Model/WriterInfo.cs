@@ -15,5 +15,7 @@ namespace MyBlog.Model
         public string UserName { get; set; }
         [SugarColumn(ColumnDataType = "varchar(60)")]
         public string password { get; set; }
+        [SugarColumn(ColumnDataType = "int")]
+        public int role { get; set; }
     }
 }

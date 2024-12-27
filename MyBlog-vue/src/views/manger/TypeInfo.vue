@@ -108,7 +108,7 @@ export default {
           }).then(res => {
         const types = res.data.data; // 假设后端返回的数据在 response.data.data 中
         // 过滤掉 Id 为 0 的项
-        _this.tableData = types.filter(type => type.Id !== 0);
+        _this.tableData = types.filter(type => type.id !== 0);
       })
     },
     handleDelete(row){

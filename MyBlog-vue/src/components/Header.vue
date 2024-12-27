@@ -36,7 +36,7 @@
       logout() {
         const _this = this
         _this.$store.commit("REMOVE_INFO")
-        _this.$router.push("/login")
+        _this.$router.replace("/login")
       }
     },
     created() {

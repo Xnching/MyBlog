@@ -48,7 +48,7 @@
             { required: true, message: '请输入用户名', trigger: 'blur' },
             { min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur' }
           ],
-          password: [
+          userpwd: [
             { required: true, message: '请选择密码', trigger: 'change' }
           ]
         }

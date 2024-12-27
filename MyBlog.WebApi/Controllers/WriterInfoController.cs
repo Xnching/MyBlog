@@ -92,5 +92,16 @@ namespace MyBlog.WebApi.Controllers
             if (!b) return ResultHelper.Error("删除失败！");
             return ResultHelper.Success();
         }
+
+        [Authorize]
+        [HttpDelete("role/{id}")]
+        public async Task<ActionResult<Result>> changeRole(int id)
+        {
+            var b = await writerInfoService.GetById(id);
+            b.role = 1;
+            var c = await writerInfoService.Update(b);
+            if (!c) return ResultHelper.Error("修改失败！");
+            return ResultHelper.Success();
+        }
     }
 }

@@ -26,6 +26,32 @@
     ]
   },
   {
+    "ContainingType": "MyBlog.JWT.Controllers.AuthoizeController",
+    "Method": "login2",
+    "RelativePath": "api/Authoize/login2",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "authoizeDTO",
+        "Type": "MyBlog.Model.DTO.AuthoizeDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MyBlog.WebApi.Common.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "MyBlog.WebApi.Controllers.BlogNewsController",
     "Method": "addBlogNews",
     "RelativePath": "api/BlogNews/add",
@@ -465,6 +491,32 @@
         "Name": "pageNum",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MyBlog.WebApi.Common.Result",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MyBlog.WebApi.Controllers.WriterInfoController",
+    "Method": "changeRole",
+    "RelativePath": "api/WriterInfo/role/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [
